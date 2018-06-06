@@ -1,6 +1,12 @@
 .shell {
   padding-top: 10px; }
 
+div.actions button {
+  color: white; }
+
+.btn-padding {
+  padding: 10px; }
+
 /*
 .a-btn {
   display: inline-block;

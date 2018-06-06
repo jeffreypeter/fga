@@ -2,6 +2,7 @@
 @section('css')
 	<link href="{{ asset('css/dataTables.bootstrap4.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/responsive.bootstrap4.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/fastselect.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 <ol class="breadcrumb">
@@ -43,6 +44,23 @@
 							{{ Form::label('password', 'Password') }}
 							{{ Form::text('password', Input::old('password'), array('class' => 'form-control','placeholder'=>'Password')) }}
 						</div>
+						<div class="form-group">
+							<label class="col-form-label">Roles</label>
+							@foreach ($roles as $item)
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="roles[]" id="{{$item->name}}" value="{{$item->name}}">
+									<label class="form-check-label" for="{{$item->name}}">{{$item->display_name}}</label>
+								</div>
+							@endforeach
+						</div>
+						{{--<div class="form-group">
+							<select class="multipleSelect" multiple name="language">
+								<option value="Bangladesh">Bangladesh</option>
+								<option selected value="Barbados">Barbados</option>
+								<option selected value="Belarus">Belarus</option>
+								<option value="Belgium">Belgium</option>
+							</select>
+						</div>--}}
 					</div>
 					<div class="card-footer">
 						<button type="submit" class="btn btn-primary">Save</button>
@@ -61,5 +79,6 @@
 	<script src="{{ asset('js/vendor/dataTables.responsive.js') }}"></script>
 	<script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
 	<script src="{{ asset('js/vendor/responsive.bootstrap4.js') }}"></script>
+	<script src="{{ asset('js/vendor/fastselect.standalone.js') }}"></script>
 	<script src="{{ asset('js/views/users/manage.js') }}"></script>
 @endsection

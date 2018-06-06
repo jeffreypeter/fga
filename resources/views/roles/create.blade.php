@@ -43,6 +43,15 @@
 							{{ Form::label('description', 'Description') }}
 							{{ Form::text('description', Input::old('description'), array('class' => 'form-control','placeholder'=>'Description')) }}
 						</div>
+						<div class="form-group">
+							<label class="col-form-label">Permissions</label>
+							@foreach ($permissions as $item)
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="permissions[]" id="{{$item->name}}" value="{{$item->name}}">
+									<label class="form-check-label" for="{{$item->name}}">{{$item->display_name}}</label>
+								</div>
+							@endforeach
+						</div>
 					</div>
 					<div class="card-footer">
 						<button type="submit" class="btn btn-primary">Save</button>

@@ -1594,7 +1594,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .form-check-input {
   position: absolute;
   margin-top: 0.25rem;
-  margin-left: -1.25rem; }
+  /*margin-left: -1.25rem;*/ }
 
 .form-check-inline {
   display: inline-block;

@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use App\Models\Role;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 
-class RoleManagementController extends Controller
+class PermissionManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class RoleManagementController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        return View::make('roles.manage')->with('roles', $roles);
+        $permissions = Permission::all();
+        return View::make('permissions.manage')->with('permissions', $permissions);
     }
 
     /**
@@ -29,8 +27,7 @@ class RoleManagementController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
-        return View::make('roles.create')->with(['permissions'=>$permissions]);
+        return View::make('permissions.create');
     }
 
     /**
@@ -41,13 +38,12 @@ class RoleManagementController extends Controller
      */
     public function store(Request $request)
     {
-        $role = new Role();
-        $role->fill($request->all());
-        $role->save();
-        $role->attachPermissions($request->input('permissions'));
-        Session::flash('message', 'Successfully created the role!');
+        $permission = new Permission();
+        $permission->fill($request->all());
+        $permission->save();
+        Session::flash('message', 'Successfully created the Permission!');
         Session::flash('status', 'success');
-        return redirect('roles');
+        return redirect('permissions');
     }
 
     /**
@@ -69,9 +65,8 @@ class RoleManagementController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::find($id);
-        $permissions = Permission::all();
-        return View::make('roles.edit')->with(['role'=>$role,'permissions'=>$permissions]);
+        $permission = Permission::find($id);
+        return View::make('permissions.edit')->with(['permission'=>$permission]);
     }
 
     /**
@@ -83,16 +78,12 @@ class RoleManagementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $role = Role::find($id);
-        $role->fill(array_filter($request->all()));
-        $role->save();
-        $role->detachPermissions($role->cachedPermissions());
-        if (!empty($request->input('permissions'))) {
-            $role->attachPermissions($request->input('permissions'));
-        }
-        Session::flash('message', 'Successfully updated the Role!');
+        $permission = Permission::find($id);
+        $permission->fill(array_filter($request->all()));
+        $permission->save();
+        Session::flash('message', 'Successfully updated the permission!');
         Session::flash('status', 'success');
-        return Redirect::to('roles');
+        return redirect('permissions');
     }
 
     /**
@@ -103,10 +94,10 @@ class RoleManagementController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id);
-        Session::flash('message', 'Successfully removed the role');
+        $permissions = Permission::find($id);
+        Session::flash('message', 'Successfully removed the permission');
         Session::flash('status', 'success');
-        $role->delete();
-        return redirect('roles');
+        $permissions->delete();
+        return redirect('permissions');
     }
 }
