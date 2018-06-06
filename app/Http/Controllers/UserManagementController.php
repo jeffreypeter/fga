@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use View;
 use Session;
@@ -32,7 +33,8 @@ class UserManagementController extends Controller
      */
     public function create()
     {
-        return View::make('users.create');
+        $roles = Role::all();
+        return View::make('users.create')->with('roles',$roles);
     }
 
     /**
@@ -47,6 +49,7 @@ class UserManagementController extends Controller
         $user->fill($request->all());
         $user->password =bcrypt($user->password);
         $user->save();
+        $user->attachRoles($request->input('roles'));
         Session::flash('message', 'Successfully created the user!');
         Session::flash('status', 'success');
         return redirect('users');
@@ -60,8 +63,7 @@ class UserManagementController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return View::make('users.edit')->with('user', $user);
+        //
     }
 
     /**
@@ -73,7 +75,8 @@ class UserManagementController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return View::make('users.edit')->with('user', $user);
+        $roles = Role::all();
+        return View::make('users.edit')->with(['user'=>$user,'roles'=>$roles]);
     }
 
     /**
@@ -86,11 +89,17 @@ class UserManagementController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        Log::info('password:'.input('password'));
         $user->fill(array_filter($request->all()));
+        if(!empty($request->input('password'))) {
+            $user->password =bcrypt($user->password);
+        }
+        $user->detachRoles($user->cachedRoles());
+        if(!empty($request->input('roles'))) {
+            $user->attachRoles($request->input('roles'));
+        }
+        $user->save();
         Session::flash('message', 'Successfully updated the user!');
         Session::flash('status', 'success');
-        $user->save();
         return Redirect::to('users');
     }
 

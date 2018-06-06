@@ -17,6 +17,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/roles"><i class="icon-puzzle"></i> Roles</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/permissions"><i class="icon-puzzle"></i> Permissions</a>
+          </li>
         </ul>
       </li>
       <li class="nav-item">

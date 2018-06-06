@@ -1,7 +1,6 @@
 $(document).ready( function () {
     console.log('loaded manage.js');
-    $('#manage-users').DataTable({
+    $('#manage-permissions').DataTable({
         responsive: true
     });
-    // $('.multipleSelect').fastselect();
 } );

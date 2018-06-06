@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function() {
     Route::resource('users', 'UserManagementController');
     Route::resource('teams', 'TeamManagementController');
     Route::resource('roles', 'RoleManagementController');
+    Route::resource('permissions', 'PermissionManagementController');
 	// Section CoreUI elements
 	Route::view('/sample/dashboard','samples.dashboard');
 	Route::view('/sample/buttons','samples.buttons');

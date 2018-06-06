@@ -40,10 +40,10 @@
 								<tbody>
 								@foreach($roles as $key => $value)
 									<tr>
-										<td><a href="{{ URL::to('roles/' . $value->display_name) }}">{{ $value->display_name }}</a></td>
+										<td><a href="{{ URL::to('roles/' . $value->id. '/edit') }}">{{ $value->display_name }}</a></td>
 										<td>{{ $value->description }}</td>
 										<td>
-											<div class="btn-group" role="group" aria-label="Actions">
+											<div class="btn-group actions" role="group" aria-label="actions">
 												<button onclick="window.location.href='{{ URL::to('roles/' . $value->id. '/edit') }}'" class="btn btn-secondary btn-info"><i class="fa fa-edit" aria-hidden="true"></i></button>
 												{{ Form::open(array('url' => 'roles/' . $value->id, 'class'=>'pull-left')) }}
 												{{ Form::hidden('_method', 'DELETE') }}
