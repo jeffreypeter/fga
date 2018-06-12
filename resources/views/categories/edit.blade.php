@@ -6,17 +6,17 @@
 @section('content')
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a href="{{URL::to('/')}}">Home</a></li>
-	<li class="breadcrumb-item"><a href="{{URL::to('permissions')}}">Permissions</a></li>
-	<li class="breadcrumb-item active">Edit Permission</li>
+	<li class="breadcrumb-item"><a href="{{URL::to('categories')}}">Categories</a></li>
+	<li class="breadcrumb-item active">Edit Storage</li>
 
 	<!-- Breadcrumb Menu-->
-	<li class="breadcrumb-menu d-md-down-none">
+	{{--<li class="breadcrumb-menu d-md-down-none">
 		<div class="btn-group" role="group" aria-label="Button group">
 			<a class="btn" href="#"><i class="icon-speech"></i></a>
 			<a class="btn" href="./"><i class="icon-graph"></i> &nbsp;Admin</a>
 			<a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Roles</a>
 		</div>
-	</li>
+	</li>--}}
 </ol>
 
 <div class="container-fluid">
@@ -24,36 +24,21 @@
 		<div class="row">
 			<div class="col-12 col-sm-8">
 				<div class="card">
-					{{ Form::open(array('url' => 'permissions/' . $permission->id)) }}
+					{{ Form::open(array('url' => 'categories/' . $category->id)) }}
 					{{ method_field('PATCH') }}
 					<div class="card-header">
-						<strong>Edit Role</strong>
+						<strong>Edit Category</strong>
 						<small>Form</small>
 					</div>
 					<div class="card-body">
 						<div class="form-group">
 							{{ Form::label('name', 'Name') }}
-							{{ Form::text('name', $permission->name, array('class' => 'form-control','placeholder'=>'Name','required')) }}
+							{{ Form::text('name', $category->name, array('class' => 'form-control','placeholder'=>'Name','required')) }}
 						</div>
 						<div class="form-group">
-							{{ Form::label('display_name', 'Display Name') }}
-							{{ Form::text('display_name', $permission->display_name, array('class' => 'form-control','placeholder'=>'Email','required')) }}
+							{{ Form::label('address', 'Address') }}
+							{{ Form::text('address', $category->description, array('class' => 'form-control','placeholder'=>'Description','required')) }}
 						</div>
-						<div class="form-group">
-							{{ Form::label('description', 'Description') }}
-							{{ Form::text('description', $permission->description, array('class' => 'form-control','placeholder'=>'Email','required')) }}
-						</div>
-						{{--<div class="form-group">
-							<label class="col-form-label">Roles</label>
-							<div class="col-9">
-								@foreach ($roles as $item)
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" name="roles[]" id="{{$item->name}}" value="{{$item->name}}" {{ $user->hasRole($item->name) === true ? "checked" : "" }}>
-										<label class="form-check-label" for="{{$item->name}}">{{$item->display_name}}</label>
-									</div>
-								@endforeach
-							</div>
-						</div>--}}
 					</div>
 					<div class="card-footer">
 						<button type="submit" class="btn btn-primary">Save</button>

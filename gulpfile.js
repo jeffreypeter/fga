@@ -12,7 +12,6 @@ gulp.task('copycss', function() {
 		'resources/assets/Static_Full_Project_GULP/src/css/*',
 		'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
 		'node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.css',
-		'node_modules/fastselect/dist/fastselect.css'
 	]).pipe(gulp.dest("public/css"))
 });	
 
@@ -49,7 +48,6 @@ gulp.task('copyjs', function() {
 		'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
 		'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js',
 		'node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.js',
-        'node_modules/fastselect/dist/fastselect.standalone.js'
 		]).pipe(gulp.dest('public/js/vendor'));
 });
 

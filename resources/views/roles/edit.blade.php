@@ -22,7 +22,7 @@
 <div class="container-fluid">
 	<div class="animate fadeIn">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-sm-8">
 				<div class="card">
 					{{ Form::open(array('url' => 'roles/' . $role->id)) }}
 					{{ method_field('PATCH') }}
@@ -66,9 +66,4 @@
 </div>
 @endsection
 @section('myscript')
-	<script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
-	<script src="{{ asset('js/vendor/dataTables.responsive.js') }}"></script>
-	<script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/vendor/responsive.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/views/roles/manage.js') }}"></script>
 @endsection

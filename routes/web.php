@@ -17,7 +17,10 @@ Auth::routes();
 Route::middleware('auth')->group(function() {
 
     Route::get('/', 'HomeController@index');
-	// Users
+    Route::resource('storages', 'StorageManagementController');
+    Route::resource('categories', 'CategoryManagementController');
+    Route::resource('items', 'ItemManagementController');
+    // Users
     Route::resource('users', 'UserManagementController');
     Route::resource('teams', 'TeamManagementController');
     Route::resource('roles', 'RoleManagementController');
