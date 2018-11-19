@@ -38,41 +38,33 @@
                         <div class="shell">
                             <table id="manage-storage-items" class="display responsive" width="100%">
                                 <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Quantity</th>
-                                    <th>Storage</th>
-                                    <th>Action</th>
-                                </tr>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Quantity</th>
+									<th>Storage</th>
+									<th>Action</th>
+								</tr>
                                 </thead>
                                 <tbody>
                                 @foreach($storage->items as $key => $value)
-                                    <tr>
-                                        <td><a href="{{ URL::to('items/' . $value->id. '/edit') }}">{{ $value->name }}</a></td>
-                                        <td>
-                                            <ul class="list-inline">
-                                                @foreach($value->categories as $category)
-                                                    <li class="list-inline-item">
-                                                        {{ $category->name}}
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                        <td>{{ $value->quantity }}</td>
-                                        <td>{{ $value->storage->address }}</td>
-                                        <td>
-                                            <div class="btn-group actions" role="group" aria-label="actions">
-                                                <button onclick="window.location.href='{{ URL::to('items/' . $value->id. '/edit?storage='.$storage->id) }}'" class="btn btn-info btn-secondary"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                                                {{ Form::open(array('url' => 'items/' . $value->id, 'class'=>'pull-left')) }}
-                                                {{ Form::hidden('_method', 'DELETE') }}
-                                                <button type="submit" class="btn btn-danger btn-secondary">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </button>
-                                                {{ Form::close() }}
-                                            </div>
-                                        </td>
-                                    </tr>
+									<tr>
+										<td><a href="{{ URL::to('items/' . $value->id. '/edit') }}">{{ $value->itemName->name }}</a></td>
+										<td>{{ $value->description}}</td>
+										<td>{{ $value->quantity }}</td>
+										<td>{{ $value->storage->address }}</td>
+										<td>
+											<div class="btn-group actions" role="group" aria-label="actions">
+												<button onclick="window.location.href='{{ URL::to('items/' . $value->id. '/edit') }}'" class="btn btn-info btn-secondary"><i class="fa fa-edit" aria-hidden="true"></i></button>
+												{{ Form::open(array('url' => 'items/' . $value->id, 'class'=>'pull-left')) }}
+												{{ Form::hidden('_method', 'DELETE') }}
+												<button type="submit" class="btn btn-danger btn-secondary">
+													<i class="fa fa-trash" aria-hidden="true"></i>
+												</button>
+												{{ Form::close() }}
+											</div>
+										</td>
+									</tr>
                                 @endforeach
                                 </tbody>
                             </table>
@@ -109,7 +101,7 @@
 									<div class="card-footer">
 										<button type="submit" class="btn btn-primary">Save</button>
 										<button type="reset" class="btn btn-default">Reset</button>
-										<button type="button" onclick="window.location.href='{{ url()->previous() }}'" class="btn btn-small btn-info">Back</button>
+										<button type="button" onclick="window.location.href='{{ URL::to('storages') }}'" class="btn btn-small btn-info">Back</button>
 									</div>
 									{{ Form::close() }}
 								</div>

@@ -26,6 +26,9 @@
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Inventory</a>
         <ul class="nav-dropdown-items">
           <li class="nav-item">
+            <a class="nav-link" href="/item-names"><i class="fa fa-location-arrow" aria-hidden="true"></i> Item Name</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/storages"><i class="fa fa-location-arrow" aria-hidden="true"></i> Storage</a>
           </li>
           <li class="nav-item">
@@ -36,14 +39,14 @@
           </li>
         </ul>
       </li>
-      <li class="nav-item nav-dropdown">
+      {{--<li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-table" aria-hidden="true"></i> Reports</a>
         <ul class="nav-dropdown-items">
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="icon-puzzle"></i> Storage</a>
           </li>
         </ul>
-      </li>
+      </li>--}}
 
       {{--<li class="nav-item">
         <a class="nav-link" href="/sample/dashboard"><i class="icon-calculator"></i> Samples</a>

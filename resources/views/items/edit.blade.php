@@ -7,7 +7,7 @@
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a href="{{URL::to('/')}}">Home</a></li>
 	<li class="breadcrumb-item"><a href="{{URL::to('items')}}">Items</a></li>
-	<li class="breadcrumb-item active">Edit Items</li>
+	<li class="breadcrumb-item active">Edit</li>
 
 	<!-- Breadcrumb Menu-->
 	{{--<li class="breadcrumb-menu d-md-down-none">
@@ -33,8 +33,16 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group">
-							{{ Form::label('name', 'Name') }}
-							{{ Form::text('name', $item->name, array('class' => 'form-control','placeholder'=>'Name','required')) }}
+							<label for="categories">Category</label>
+							<select class="form-control" id="itemNames" name="name">
+								@foreach ($itemNames as $value)
+									<option value="{{$value->id}}" {{  ($value->name === $item->itemName->name) ? "selected" : ""}}>{{$value->name}}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="form-group">
+							{{ Form::label('description', 'Description') }}
+							{{ Form::text('description', $item->description, array('class' => 'form-control','placeholder'=>'Description','required')) }}
 						</div>
 						<div class="form-group">
 							{{ Form::label('quantity', 'Quantity') }}
@@ -54,15 +62,6 @@
 							<select class="form-control" id="storage" name="storage">
 								@foreach ($storages as $value)
 									<option value="{{$value->id}}" {{ $item->storage->name === $value->name ? "selected" : ""}}>{{$value->name}}</option>
-								@endforeach
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="categories">Category</label>
-							<select class="form-control" id="categories" name="categories[]">
-
-								@foreach ($categories as $value)
-									<option value="{{$value->id}}" {{ in_array($value->name,$item->categories->pluck('name')->all()) ? "selected" : ""}}>{{$value->name}}</option>
 								@endforeach
 							</select>
 						</div>

@@ -25,32 +25,34 @@
 			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
-						<strong>Manage Items</strong>
+						<strong>Manage Item Names</strong>
 					</div>
 					<div class="card-body">
-						<a href="{{ URL::to('items/create') }}" class="btn btn-primary">Add Item</a>
+						<a href="{{ URL::to('item-names/create') }}" class="btn btn-primary">Add Item Name</a>
 						<div class="shell">
-							<table id="manage-items" class="display responsive" width="100%">
+							<table id="manage-item-names" class="display responsive" width="100%">
 								<thead>
 								<tr>
 									<th>Name</th>
+									<th>Category</th>
 									<th>Description</th>
-									<th>Quantity</th>
-									<th>Storage</th>
 									<th>Action</th>
 								</tr>
 								</thead>
 								<tbody>
-								@foreach($items as $key => $value)
+								@foreach($itemNames as $key => $value)
 									<tr>
-										<td><a href="{{ URL::to('items/' . $value->id. '/edit') }}">{{ $value->itemName->name }}</a></td>
-										<td>{{ $value->description}}</td>
-										<td>{{ $value->quantity }}</td>
-										<td>{{ $value->storage->address }}</td>
+										<td><a href="{{ URL::to('item-names/' . $value->id. '/edit') }}">{{ $value->name }}</a></td>
+										<td>
+											{{ $value->category->name }}
+										</td>
+										<td>
+											{{$value->description}}
+										</td>
 										<td>
 											<div class="btn-group actions" role="group" aria-label="actions">
-												<button onclick="window.location.href='{{ URL::to('items/' . $value->id. '/edit') }}'" class="btn btn-info btn-secondary"><i class="fa fa-edit" aria-hidden="true"></i></button>
-												{{ Form::open(array('url' => 'items/' . $value->id, 'class'=>'pull-left')) }}
+												<button onclick="window.location.href='{{ URL::to('item-names/' . $value->id. '/edit') }}'" class="btn btn-info btn-secondary"><i class="fa fa-edit" aria-hidden="true"></i></button>
+												{{ Form::open(array('url' => 'item-names/' . $value->id, 'class'=>'pull-left')) }}
 												{{ Form::hidden('_method', 'DELETE') }}
 												<button type="submit" class="btn btn-danger btn-secondary">
 													<i class="fa fa-trash" aria-hidden="true"></i>
@@ -97,5 +99,5 @@
 	<script src="{{ asset('js/vendor/dataTables.responsive.js') }}"></script>
 	<script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
 	<script src="{{ asset('js/vendor/responsive.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/views/items/manage.js') }}"></script>
+	<script src="{{ asset('js/views/item-names/manage.js') }}"></script>
 @endsection
