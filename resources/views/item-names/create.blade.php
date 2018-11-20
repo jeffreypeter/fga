@@ -6,17 +6,17 @@
 @section('content')
 <ol class="breadcrumb">
 	<li class="breadcrumb-item"><a href="{{URL::to('/')}}">Home</a></li>
-	<li class="breadcrumb-item"><a href="{{URL::to('permissions')}}">Permissions</a></li>
-	<li class="breadcrumb-item active">Create Permission</li>
+	<li class="breadcrumb-item"><a href="{{URL::to('item-names')}}">Item Names</a></li>
+	<li class="breadcrumb-item active">Create</li>
 
 	<!-- Breadcrumb Menu-->
-	<li class="breadcrumb-menu d-md-down-none">
+	{{--<li class="breadcrumb-menu d-md-down-none">
 		<div class="btn-group" role="group" aria-label="Button group">
 			<a class="btn" href="#"><i class="icon-speech"></i></a>
 			<a class="btn" href="./"><i class="icon-graph"></i> &nbsp;Admin</a>
 			<a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Template</a>
 		</div>
-	</li>
+	</li>--}}
 </ol>
 
 <div class="container-fluid">
@@ -25,9 +25,9 @@
 		<div class="row">
 			<div class="col-12 col-sm-8">
 				<div class="card">
-					{{ Form::open(array('url' => 'permissions','method' => 'post')) }}
+					{{ Form::open(array('url' => 'item-names','method' => 'post')) }}
 					<div class="card-header">
-						<strong>Create Permission</strong>
+						<strong>Create Item Names</strong>
 						<small>Form</small>
 					</div>
 					<div class="card-body">
@@ -36,19 +36,22 @@
 							{{ Form::text('name', Input::old('name'), array('class' => 'form-control','placeholder'=>'Name','required')) }}
 						</div>
 						<div class="form-group">
-							{{ Form::label('display_name', 'Display Name') }}
-							{{ Form::text('display_name', Input::old('display_name'), array('class' => 'form-control','placeholder'=>'Display Name','required')) }}
+							{{ Form::label('description', 'Description') }}
+							{{ Form::text('description', Input::old('description'), array('class' => 'form-control','placeholder'=>'Description','required')) }}
 						</div>
 						<div class="form-group">
-							{{ Form::label('description', 'Description') }}
-							{{ Form::text('description', Input::old('description'), array('class' => 'form-control','placeholder'=>'Description')) }}
+							<label for="categories">Category</label>
+							<select class="form-control" id="categories" name="category">
+								@foreach ($categories as $value)
+									<option value="{{$value->id}}">{{$value->name}}</option>
+								@endforeach
+							</select>
 						</div>
-
 					</div>
 					<div class="card-footer">
 						<button type="submit" class="btn btn-primary">Save</button>
 						<button type="reset" class="btn btn-default">Reset</button>
-						<button type="button" onclick="window.location.href='{{ url()->previous() }}'" class="btn btn-small btn-info">Back</button>
+						<button type="button" onclick="window.location.href='{{ URL::to('item-names') }}'" class="btn btn-small btn-info">Back</button>
 					</div>
 
 					{{ Form::close() }}
@@ -59,9 +62,4 @@
 </div>
 @endsection
 @section('myscript')
-	<script src="{{ asset('js/vendor/jquery.dataTables.js') }}"></script>
-	<script src="{{ asset('js/vendor/dataTables.responsive.js') }}"></script>
-	<script src="{{ asset('js/vendor/dataTables.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/vendor/responsive.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/views/permissions/manage.js') }}"></script>
 @endsection

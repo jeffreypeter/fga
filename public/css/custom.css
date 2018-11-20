@@ -7,6 +7,9 @@ div.actions button {
 .btn-padding {
   padding: 10px; }
 
+div#accordion div.card {
+  margin-bottom: 0px !important; }
+
 /*
 .a-btn {
   display: inline-block;

@@ -25,13 +25,55 @@
 								<i class="icon-settings"></i>
 							</button>
 							<div class="dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item" href="/users">Users</a>
+								<a class="dropdown-item" href="/users">Manage</a>
 								{{--<a class="dropdown-item" href="#">Another action</a>
 								<a class="dropdown-item" href="#">Something else here</a>--}}
 							</div>
 						</div>
 						<h4 class="mb-0"> {{$users}}</h4>
 						<p>Users</p>
+					</div>
+					<div class="chart-wrapper px-3" style="height:70px;">
+						<canvas id="card-chart1" class="chart" height="70"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-warning">
+					<div class="card-body pb-0">
+						<div class="btn-group float-right">
+							<button type="button" class="btn btn-transparent dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-settings"></i>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="/items">Manage</a>
+								{{--<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>--}}
+							</div>
+						</div>
+						<h4 class="mb-0"> {{$items}}</h4>
+						<p>Items</p>
+					</div>
+					<div class="chart-wrapper px-3" style="height:70px;">
+						<canvas id="card-chart1" class="chart" height="70"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-info">
+					<div class="card-body pb-0">
+						<div class="btn-group float-right">
+							<button type="button" class="btn btn-transparent dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-settings"></i>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="/storages">Manage</a>
+								{{--<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>--}}
+							</div>
+						</div>
+						<h4 class="mb-0"> {{$storages}}</h4>
+						<p>Storages</p>
 					</div>
 					<div class="chart-wrapper px-3" style="height:70px;">
 						<canvas id="card-chart1" class="chart" height="70"></canvas>
