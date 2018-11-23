@@ -11,20 +11,20 @@
 	<li class="breadcrumb-item active">Create User</li>
 
 	<!-- Breadcrumb Menu-->
-	<li class="breadcrumb-menu d-md-down-none">
+	{{--<li class="breadcrumb-menu d-md-down-none">
 		<div class="btn-group" role="group" aria-label="Button group">
 			<a class="btn" href="#"><i class="icon-speech"></i></a>
 			<a class="btn" href="./"><i class="icon-graph"></i> &nbsp;Admin</a>
 			<a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Users</a>
 		</div>
-	</li>
+	</li>--}}
 </ol>
 
 <div class="container-fluid">
 	<div class="animate fadeIn">
 
 		<div class="row">
-			<div class="col-12 col-sm-8 col-md-10 col-lg-8">
+			<div class="col-12 col-sm-8">
 				<div class="card">
 					{{ Form::open(array('url' => 'users')) }}
 					<div class="card-header">

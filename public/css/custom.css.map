@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACA,MAAO;EACL,WAAW,EAAE,IAAI;;AAGjB,kBAAO;EACL,KAAK,EAND,KAAK;;AASb,YAAa;EACX,OAAO,EAAE,IAAI;;AAEf;;;;;;;GAOG;AACH;;;GAGG",
+"mappings": "AACA,MAAO;EACL,WAAW,EAAE,IAAI;;AAGjB,kBAAO;EACL,KAAK,EAND,KAAK;;AASb,YAAa;EACX,OAAO,EAAE,IAAI;;AAIb,sBAAS;EACP,aAAa,EAAE,cAAc;;AAGjC;;;;;;;GAOG;AACH;;;GAGG",
 "sources": ["custom.scss"],
 "names": [],
 "file": "custom.css"

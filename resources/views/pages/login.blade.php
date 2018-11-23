@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
-    <meta name="author" content="Lukasz Holeczek">
-    <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
-    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-
-    <title>CoreUI Bootstrap 4 Admin Template</title>
+    <meta name="description" content="FGA - Furniture Give Away">
+    <meta name="author" content="Jeffrey">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <title>FGA | Furniture Give Away</title>
 
     <!-- Icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -57,16 +56,15 @@
                         </form>
                     </div>
                 </div>
-                <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+                {{--<div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
                     <div class="card-body text-center">
                         <div>
                             <h2>Sign up</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
+                            <p></p>
                             <a href="{{ route('register') }}" class="btn btn-primary active mt-3">Register Now!</a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>

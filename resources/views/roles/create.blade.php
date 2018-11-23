@@ -23,7 +23,7 @@
 	<div class="animate fadeIn">
 
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12 col-sm-8">
 				<div class="card">
 					{{ Form::open(array('url' => 'roles','method' => 'post')) }}
 					<div class="card-header">
