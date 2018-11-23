@@ -18,6 +18,7 @@ class UserManagementTableSeeder extends Seeder
         DB::table('users')->insert(array(
             array('name' => 'Jeffrey', 'email' => 'jeffravi@iu.edu', 'password' => bcrypt('password')),
             array('name' => 'Admin', 'email' => 'admin@fga.org', 'password' => bcrypt('password')),
+            array('name' => 'Dwayne', 'email' => 'dwayne@fga.org', 'password' => bcrypt('password')),
             ));
 
         DB::table('permissions')->insert(array(

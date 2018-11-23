@@ -32,10 +32,10 @@ class ItemManagementController extends Controller
         $itemNames = ItemName::all();
         if($request->filled('storage')) {
             $storages = Storage::find($request->query('storage'));
-            return View::make('items.create')->with(['storages'=>[$storages],'itemNames'=>itemNames]);
+            return View::make('items.create')->with(['storages'=>[$storages],'itemNames'=>$itemNames]);
         } else {
             $storages = Storage::all();
-            return View::make('items.create')->with(['storages'=>$storages,'itemNames'=>itemNames]);
+            return View::make('items.create')->with(['storages'=>$storages,'itemNames'=>$itemNames]);
         }
     }
 
